@@ -6,7 +6,7 @@ branches:
   only:
   - master
 before_script:
-  - npm install -g @angular/cli
+  - npm install
 before_deploy:
   - ng build --prod --base-href https://github.com/VineethaPR/hello-world
 deploy:
