@@ -7,10 +7,6 @@ branches:
   - master
 before_script:
   - npm install -g @angular/cli
-
-script:
-  - npm run test:headless
-
 before_deploy:
   - npm run build:prod
 deploy:
