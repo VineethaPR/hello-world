@@ -1,6 +1,6 @@
 ---
-name: build-dev-artifact-on-merge
-run-name: Trigger the development artifact build on merging changes to develop by @${{ github.actor }}
+name: build-dev-artifact
+run-name: Trigger the build and deployment on pushing changes to main by @${{ github.actor }}
 
 on:
   push:
@@ -23,6 +23,12 @@ jobs:
         run: npm install
       - name: Build
         run: npm run build:prod
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          FOLDER: dist/hello-world # The folder the action should deploy.
+          CLEAN: true
+          github_access_token: ${{ secrets.GITHUB_TOKEN }}
      
         
      
