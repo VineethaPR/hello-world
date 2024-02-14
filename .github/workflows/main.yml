@@ -26,9 +26,10 @@ jobs:
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          FOLDER: dist/hello-world # The folder the action should deploy.
+          FOLDER: dist/hello-world 
           CLEAN: true
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages
      
         
      
