@@ -1,13 +1,31 @@
-name: learn-github-actions
-run-name: ${{ github.actor }} is learning GitHub Actions
-on: [push]
+---
+name: build-dev-artifact-on-merge
+run-name: Trigger the development artifact build on merging changes to develop by @${{ github.actor }}
+
+on:
+  push:
+    branches:
+      - 'develop'
+
+env:
+  DISTDIR: dist
 jobs:
-  check-bats-version:
+  build-dev-artifact-on-merge:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v3
+      - name: get repository
+        uses: actions/checkout@v3
+      - name: install node
+        uses: actions/setup-node@v3
         with:
-          node-version: '18'
-      - run: npm install -g bats
-      - run: bats -v
+          node-version: 16
+      - name: install node dependencies
+        run: npm install
+      - name: install java
+        uses: actions/setup-java@v3
+        with:
+          java-version: 11
+          distribution: temurin
+      - name: create dev dist
+        run: bin/build-hello-world
+     
