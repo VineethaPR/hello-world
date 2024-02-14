@@ -1,6 +1,6 @@
 ---
 name: build-dev-artifact
-run-name: Trigger the development artifact build on merging changes to develop by @${{ github.actor }}
+run-name: Trigger the build and deployment on pushing changes to main by @${{ github.actor }}
 
 on:
   push:
