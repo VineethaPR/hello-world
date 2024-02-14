@@ -5,7 +5,7 @@ run-name: Trigger the development artifact build on merging changes to develop b
 on:
   push:
     branches:
-      - 'develop'
+      - 'master'
 
 env:
   DISTDIR: dist
