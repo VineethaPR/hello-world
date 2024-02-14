@@ -1,5 +1,5 @@
 ---
-name: build-dev-artifact-on-merge
+name: build-dev-artifact
 run-name: Trigger the development artifact build on merging changes to develop by @${{ github.actor }}
 
 on:
@@ -24,9 +24,10 @@ jobs:
       - name: Build
         run: npm run build:prod
       - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@v4
+        uses: JamesIves/github-pages-deploy-action@v3
         with:
-          folder: dist/hello-world
+          FOLDER: docs/_site # The folder the action should deploy.
+          CLEAN: true
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
      
         
