@@ -10,7 +10,7 @@ on:
 env:
   DISTDIR: dist
 jobs:
-  build-dev-artifact-on-merge:
+  build-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: get repository
