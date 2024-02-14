@@ -28,7 +28,6 @@ jobs:
         with:
           folder: site
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
-          FOLDER: dist/hello-world
      
         
      
